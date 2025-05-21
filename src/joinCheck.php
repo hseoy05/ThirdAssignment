@@ -8,7 +8,7 @@
 <body>
     <h1>Manage</h1>
     <?php
-    $conn = new mysqli("localhost", "root", "", "testdb");
+    $conn = new mysqli("db", "root", "root", "testdb");
     if ($conn->connect_error) {
     die("testDB connect Fail: ".$conn->connect_error);
     }
