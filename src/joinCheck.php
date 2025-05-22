@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JoinCheck</title>
 </head>
 <body>
     <h1>Manage</h1>
     <?php
     $conn = new mysqli("db", "root", "root", "testdb");
-    if ($conn->connect_error) {
-    die("testDB connect Fail: ".$conn->connect_error);
-    }
+    if ($conn->connect_error) { die("testDB connect Fail: ".$conn->connect_error);}
 
     $newId= $_POST['newId'] ?? '';
     $newPassword= $_POST['newPassword'] ?? '';
@@ -24,9 +22,8 @@
         $stmt->execute();
 
         echo "Join Success!\n";
-    } else {
-        echo "Join failed.";
-    }
+    } else { echo "Join failed." }
+
     $conn->close();
     ?>
     <a href="loginPage.html">Go to Login Page</a>
