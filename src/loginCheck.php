@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LoginCheck</title>
 </head>
 <body>
     <?php
     $conn = new mysqli("db", "root", "root", "testdb");
-    if ($conn->connect_error) {
-        die("DB connect Fail: " . $conn->connect_error);
-    }
+    if ($conn->connect_error) {die("DB connect Fail: " . $conn->connect_error);}
 
     $userId = $_POST['userId'] ?? '';
     $userPassword = $_POST['userPassword'] ?? '';
@@ -26,11 +24,8 @@
             $row = $result->fetch_assoc();
             $userName = $row['userName'];
             echo "Login Success!\nHello, " . htmlspecialchars($userName)."!";
-        } else {
-            echo "Failed to Login.";
-        }
+        } else { echo "Failed to Login."; }
     }
-
     $conn -> close();
     ?>
 </body>
